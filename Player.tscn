@@ -1,0 +1,134 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Sprites/Character2-sheet.png" type="Texture" id=1]
+[ext_resource path="res://Player.gd" type="Script" id=2]
+[ext_resource path="res://Sprites/Swiatlo.png" type="Texture" id=3]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 4.69096
+height = 15.6707
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 8.08122
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 12.6491
+
+[sub_resource type="Animation" id=4]
+resource_name = "Atak"
+length = 0.45
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 5, 6, 12, 7, 13, 8, 14, 9, 5 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite/Hitbox/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.05, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 0 ]
+}
+
+[node name="Player" type="KinematicBody2D" groups=[
+"player",
+]]
+rotation = -1.309
+collision_layer = 2
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_horizontal_guides_": [  ]
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+rotation = 1.5708
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 1 )
+vframes = 3
+hframes = 5
+frame = 5
+
+[node name="Hitbox" type="Area2D" parent="Sprite"]
+rotation = -2.35619
+scale = Vector2( 1.42857, 1.42857 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Hitbox"]
+position = Vector2( 5.52635, 12.4282 )
+rotation = 1.0472
+shape = SubResource( 1 )
+disabled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=[
+"player",
+]]
+position = Vector2( -0.965927, 0.258816 )
+rotation = -1.0472
+scale = Vector2( 0.7, 0.7 )
+shape = SubResource( 2 )
+
+[node name="Light2D" type="Light2D" parent="."]
+position = Vector2( 0.00173354, -0.00153124 )
+rotation = 1.61617
+scale = Vector2( 0.336165, 0.338323 )
+texture = ExtResource( 3 )
+color = Color( 1, 0.988235, 0.72549, 1 )
+mode = 2
+shadow_enabled = true
+
+[node name="Camera2D" type="Camera2D" parent="Light2D"]
+position = Vector2( 0.00478425, 0.00491336 )
+rotation = -1.61646
+scale = Vector2( 2.9558, 2.97469 )
+current = true
+
+[node name="BulletPoint" type="Node2D" parent="."]
+position = Vector2( 16.6288, 7.96769 )
+scale = Vector2( 0.7, 0.7 )
+
+[node name="Hurtbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" groups=[
+"player",
+]]
+position = Vector2( 0.258816, 0.965927 )
+scale = Vector2( 0.7, 0.7 )
+shape = SubResource( 3 )
+one_way_collision = true
+one_way_collision_margin = 0.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Atak = SubResource( 4 )
+anims/Strzal = SubResource( 5 )
+
+[node name="FireballPoint" type="Node2D" parent="."]
+position = Vector2( 7.79675, 2.05199 )
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_Area2D_area_entered"]
+[connection signal="body_entered" from="Hurtbox" to="." method="_on_Area2D_body_entered"]

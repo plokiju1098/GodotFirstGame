@@ -1,0 +1,24 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Eksplozja.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Wybuch1.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Wybuch4.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Wybuch3.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Wybuch2.png" type="Texture" id=5]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="Eksplozja" type="AnimatedSprite"]
+position = Vector2( 6, 6 )
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 1 )
+speed_scale = 2.0
+playing = true
+script = ExtResource( 1 )
+[connection signal="animation_finished" from="." to="." method="_on_Eksplozja_animation_finished"]
