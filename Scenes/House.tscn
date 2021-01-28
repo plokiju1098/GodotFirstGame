@@ -1,0 +1,170 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Scenes/BaseballBat.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Sprites/Swiatlo.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Door.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Sprites_v2/HouseInside.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/GrassBackground.png" type="Texture" id=5]
+[ext_resource path="res://Interface/PixelFont.tres" type="DynamicFont" id=6]
+[ext_resource path="res://Scenes/OpeningDoors.tscn" type="PackedScene" id=7]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 15.3029
+
+[sub_resource type="CapsuleShape2D" id=2]
+height = 4.9295
+
+[node name="House" type="Node2D"]
+
+[node name="Door" parent="." instance=ExtResource( 3 )]
+position = Vector2( 0.396851, 1.43622 )
+
+[node name="YSort" type="YSort" parent="."]
+
+[node name="BaseballBat" parent="." instance=ExtResource( 1 )]
+position = Vector2( 187.125, 104.305 )
+z_index = -1
+
+[node name="Node" type="Area2D" parent="."]
+z_index = -2
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ColorRect" type="ColorRect" parent="Node"]
+margin_left = -270.0
+margin_top = -114.0
+margin_right = 434.0
+margin_bottom = 350.0
+color = Color( 0, 0, 0, 0.760784 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="background " type="Sprite" parent="Node"]
+position = Vector2( 82, 118 )
+z_index = -1
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 704, 464 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="HouseSprite" type="StaticBody2D" parent="."]
+scale = Vector2( 0.6, 0.6 )
+z_index = -2
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite" type="Sprite" parent="HouseSprite"]
+position = Vector2( 132.814, 186.814 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HouseSprite"]
+position = Vector2( -12.8346, 22 )
+polygon = PoolVector2Array( 354.398, -11.7441, 354.198, 129.927, 203.957, 130.101, 204.143, 147.753, 211.823, 148.001, 211.885, 137.781, 354.042, 138, 354.164, 373.239, 211.796, 372.923, 211.333, 188, 204.667, 188, 204.175, 373.098, -30.3333, 373.208, -30.2159, 245.735, 161.333, 244.667, 161.333, 239.667, -30.2572, 238.17, -30.2517, 62.8425, 98.9804, 62.9279, 98.8819, 55.1518, -30.1412, 55.3295, -30.2292, -11.1667, -2.87009, -11.4754, -2.78742, -22.0581, 15.4098, -28.528, -40.9843, -22.0581, -41, 383, 364, 383, 364, -21, 11.3265, -28.064, 27.9685, -21.8927, 28.1447, -11.3967, 131.177, -11.8023, 131.838, 62.4418, 140.933, 62.1111, 141.098, -11.8023 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="HouseSprite"]
+position = Vector2( 0.371221, 0 )
+polygon = PoolVector2Array( 236.881, 106.544, 233.54, 120.093, 218.877, 121.763, 220.176, 136.426, 233.54, 136.797, 236.881, 150.903, 338.592, 150.717, 338.22, 107.1, 320.031, 106.172, 320.031, 90.5817, 300.914, 90.5817, 302.584, 105.43, 276.785, 106.544, 276.229, 90.9529, 259.524, 91.1385, 257.483, 105.43 )
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="HouseSprite"]
+position = Vector2( -25.0565, -96.8852 )
+polygon = PoolVector2Array( 236.881, 108.771, 237.994, 138.282, 365.133, 137.911, 366.247, 110.256 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="HouseSprite"]
+position = Vector2( -270.826, 88.4329 )
+polygon = PoolVector2Array( 246.537, 105.762, 247.063, 138.96, 251.004, 142.902, 335.357, 143.164, 339.386, 139.223, 339.474, 105.762, 335.269, 101.47, 330.014, 101.295, 326.247, 105.499, 259.326, 105.236, 256.172, 101.82, 251.004, 101.382 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HouseSprite"]
+position = Vector2( 25.9732, 152.608 )
+rotation = 1.5708
+shape = SubResource( 1 )
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="HouseSprite"]
+polygon = PoolVector2Array( -11.4131, 86.9999, -12.8162, 106.409, -7.08693, 109.566, 54.9992, 108.748, 59.2085, 105.941, 59.6762, 87.8183 )
+
+[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="HouseSprite"]
+position = Vector2( -26.9788, 183.596 )
+polygon = PoolVector2Array( -16.6332, 84.4409, -15.7573, 114.573, 35.1927, 117.203, 88.1285, 114.748, 89.3548, 86.7183, 83.5736, 84.7912 )
+
+[node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="HouseSprite"]
+position = Vector2( 34.3731, 258.909 )
+polygon = PoolVector2Array( 26.2657, 89.4754, 25.6758, 131.556, 65.9871, 131.36, 65.5938, 89.2787 )
+
+[node name="CollisionPolygon2D13" type="CollisionPolygon2D" parent="HouseSprite"]
+position = Vector2( -20.1747, 263.981 )
+polygon = PoolVector2Array( 21.5522, 124.771, 21.5522, 131.248, 43.8707, 131.17, 43.7927, 124.459, 37.7058, 123.21, 36.2231, 121.025, 31.3068, 121.103, 29.59, 123.522 )
+
+[node name="CollisionPolygon2D8" type="CollisionPolygon2D" parent="HouseSprite"]
+position = Vector2( 125.221, 263.038 )
+polygon = PoolVector2Array( 14.074, 116.415, 12.5009, 132.146, 65.9871, 131.36, 65.3972, 88.2955, 49.8626, 88.0988, 32.7549, 96.5544, 28.2322, 101.077 )
+
+[node name="CollisionPolygon2D9" type="CollisionPolygon2D" parent="HouseSprite"]
+position = Vector2( 274.12, 233.184 )
+polygon = PoolVector2Array( 23.4003, 131.031, 65.9871, 131.36, 38.206, 44.6787, 23.772, 68.3495 )
+
+[node name="CollisionPolygon2D10" type="CollisionPolygon2D" parent="HouseSprite"]
+position = Vector2( 274.862, 118.852 )
+polygon = PoolVector2Array( 22.4877, 166.24, 65.1766, 166.611, 64.6509, 68.5973, 23.772, 68.3495 )
+
+[node name="CollisionPolygon2D11" type="CollisionPolygon2D" parent="HouseSprite"]
+position = Vector2( 280.312, 214.837 )
+polygon = PoolVector2Array( 29.5401, 152.213, 29.5401, 161.447, 30.4712, 181.233, 49.3997, 152.074 )
+
+[node name="CollisionPolygon2D12" type="CollisionPolygon2D" parent="HouseSprite"]
+position = Vector2( 173.792, 165.362 )
+polygon = PoolVector2Array( 29.5401, 152.213, 29.4419, 226.036, 69.943, 226.114, 68.8505, 151.589 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="HouseSprite"]
+position = Vector2( 12.9738, 373.124 )
+shape = SubResource( 2 )
+
+[node name="HomeLight" type="Light2D" parent="."]
+position = Vector2( 57.3981, 95.9416 )
+z_index = 2
+texture = ExtResource( 2 )
+energy = 0.83
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="HomeLight2" type="Light2D" parent="."]
+position = Vector2( 199.892, 211.238 )
+z_index = 2
+texture = ExtResource( 2 )
+energy = 1.11
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Controls" type="Label" parent="."]
+margin_left = 213.706
+margin_top = 98.7793
+margin_right = 333.706
+margin_bottom = 137.779
+custom_fonts/font = ExtResource( 6 )
+text = "W S A D - move
+Shift - sprint
+left mouse - attack"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OpeningDoors" parent="." instance=ExtResource( 7 )]
+position = Vector2( 115.535, 101.475 )
+scale = Vector2( 0.8, 0.7 )
+
+[node name="OpeningDoors2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 89.3731, 156.179 )
+rotation = 0.0
+scale = Vector2( 0.8, 0.7 )

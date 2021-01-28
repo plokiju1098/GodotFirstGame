@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Sprites/Palenisko1.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/Palenisko2.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/Swiatlo.png" type="Texture" id=3]
+[ext_resource path="res://World/Particles.tscn" type="PackedScene" id=4]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -14,34 +15,6 @@ animations = [ {
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 13.0
-
-[sub_resource type="Gradient" id=3]
-offsets = PoolRealArray( 0.25, 0.458333, 1 )
-colors = PoolColorArray( 0.988924, 0.538929, 0.147313, 1, 0.981934, 0.876565, 0.237812, 1, 1, 0.00390625, 0.00390625, 1 )
-
-[sub_resource type="GradientTexture" id=4]
-gradient = SubResource( 3 )
-
-[sub_resource type="Curve" id=5]
-_data = [ Vector2( 0, 0.8 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.209091 ), 0.0, 0.0, 0, 0 ]
-
-[sub_resource type="CurveTexture" id=6]
-curve = SubResource( 5 )
-
-[sub_resource type="ParticlesMaterial" id=7]
-emission_shape = 2
-emission_box_extents = Vector3( 4, 8, 1 )
-flag_disable_z = true
-direction = Vector3( 0, -1, 0 )
-spread = 25.0
-gravity = Vector3( 0, 0, 0 )
-initial_velocity = 11.99
-orbit_velocity = 0.0
-orbit_velocity_random = 0.0
-tangential_accel = 0.03
-tangential_accel_random = 0.35
-scale_curve = SubResource( 6 )
-color_ramp = SubResource( 4 )
 
 [node name="Campfire" type="StaticBody2D"]
 
@@ -55,14 +28,10 @@ mode = 2
 position = Vector2( -1.81899e-12, 2 )
 scale = Vector2( 0.257813, 0.257813 )
 frames = SubResource( 1 )
-frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 1, 1 )
 shape = SubResource( 2 )
 
-[node name="Particles2D" type="Particles2D" parent="."]
-position = Vector2( 0, -6 )
-amount = 10
-process_material = SubResource( 7 )
+[node name="Particles2D" parent="." instance=ExtResource( 4 )]

@@ -1,0 +1,128 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Sprites_v2/HospitalInside.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Medicine.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/EnterSecondFloor.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/EnterFirstFloor.gd" type="Script" id=4]
+[ext_resource path="res://Scenes/LeaveHospital.gd" type="Script" id=5]
+[ext_resource path="res://Sprites_v2/Medicine.png" type="Texture" id=6]
+[ext_resource path="res://ammo_box.tscn" type="PackedScene" id=7]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 14.0
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 24, 10 )
+
+[node name="HospitalInside" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Texture" type="Sprite" parent="StaticBody2D"]
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( -138, 0 )
+polygon = PoolVector2Array( -32, -239, -26, -28, -32, 239, -512, 240, -512, -240, -39, -240, -39, -234, -176, -234, -176, -163, -101, -162, -101, -156, -112, -156, -111, -51, -134, -52, -133, -157, -182, -157, -182, -234, -241, -234, -241, -136, -234, -136, -234, -36, -234, 43, -126, 43, -125, -23, -216, -23, -216, -30, -111, -30, -111, 44, -111, 50, -241, 50, -240, -129, -247, -129, -247.141, -233.799, -342.18, -233.506, -342, -130, -297, -129, -298, -178, -292, -178, -291, -26, -298, -26, -298, -85, -349, -85, -350, -94, -372, -94, -372, -139, -350, -139, -350, -153, -370, -156, -370, -196, -349, -200, -349, -234, -506, -233, -505.983, -224.988, -438, -223, -438, -197, -485, -193, -485, -176, -439, -173, -438, -149, -442, -146, -482, -146, -483, -124, -439, -124, -437, -99, -442, -96, -483, -96, -484, -68, -438, -67, -437, -64, -437, -43, -441, -39, -481, -40, -483, -21, -504, -20, -505.5, 0.616081, -298, 0, -298, -6, -291, -6, -291, 7, -291, 50, -298, 50, -297.808, 6.99889, -325, 7, -329, 28, -368, 28, -371.625, 6.98693, -433.513, 6.9769, -435, 37, -438, 41, -482, 41, -505.486, 6.96524, -482, 42, -482, 60, -437, 62, -435, 66, -435, 86, -438, 90, -479, 90, -480, 113, -437, 112, -434, 115, -435, 137, -438, 141, -482, 140, -482, 164, -437, 164, -434, 167, -435, 189, -438, 192, -480, 192, -481, 211, -495, 212, -503, 211, -505, 234, -297, 233, -299, 196, -321, 196, -321, 101, -297.81, 100.9, -298, 70, -291, 70, -291, 95.1645, -266, 96, -266, 102, -291, 101, -290.876, 130.14, -270, 131, -270, 198, -291, 198, -290.437, 233.367, -166, 233, -167, 178, -231, 178, -231, 151, -166, 151.163, -166, 101, -246, 102, -246, 95, -60, 95, -60, 102, -111, 102, -111, 234, -39, 233, -60, 225, -61, 132, -39, 128.975, -40, 6, -65, 6, -65, -17, -39, -17.2373, -39, -23, -32, -24, -32, -44, -39, -44.1371, -39, -84, -44, -84, -44, -146, -39, -146.332, -39, -157, -81, -156, -81, -163, -39, -162.431, -39, -240 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PoolVector2Array( 160, -235, 160, 244, 639, 244, 639, -235, 172, -234, 172, -228, 223.889, -228, 224, -130, 265, -130, 265, -228, 323.002, -228, 323, -26, 330, -26, 330, -228, 426.084, -228, 426, -125, 382.425, -125, 382, -172, 374, -172, 374, -125, 374, -118, 374, 66, 406, 66, 406, 59, 381, 59, 381, -118, 386.929, -118, 391, -96, 431, -97, 433, -114, 433, -118, 433, -228, 457.875, -228, 458, -199, 632, -200, 633, -228, 633, -157.598, 611, -158, 611, -90, 634, -90, 633.942, -70.916, 611, -70, 611, -3, 633, -3, 633, 28.9461, 517, 29, 516, 59, 426, 59, 426, 66, 494, 66, 495, 94, 514, 95, 519, 103, 359, 103, 359, 110, 440, 110, 440, 133, 532, 133, 532, 110, 633, 110, 633, 172.199, 603, 172, 600, 220, 582.32, 220.733, 582, 237, 569.725, 237.029, 569, 173, 544, 173, 542, 220, 524, 221, 523, 236, 511.808, 236.063, 512, 176, 508, 172, 486, 172, 483, 176, 483, 220, 466, 220, 465, 236, 451.682, 236.089, 453, 176, 449, 172, 428, 172, 425, 175, 424, 220, 407, 220, 406, 235, 392.929, 235.163, 393, 176, 390, 172, 368, 172, 365, 175, 365, 220, 348, 220, 347, 235, 328.905, 235.3, 330, 176, 326, 172, 305, 172, 301, 175, 301, 220, 284, 220, 283, 235, 270.475, 235.321, 272, 176, 268, 172, 246, 172, 243, 175, 243, 220, 226, 220, 225, 235, 214, 236, 215, 176, 210, 172, 189, 172, 186, 176, 186, 220, 167, 220, 166, 238, 166, 147.498, 235, 146, 235, 121, 232, 118, 189, 118, 189, 101, 189, 97, 231, 97, 235, 93, 235, 71, 232, 68, 187, 68, 187, 51, 186.67, 46.6207, 231, 47, 235, 43, 235, 21, 232, 18, 242.372, 11.5795, 322.897, 11.9659, 297, 13, 297, 36, 322.306, 36.3816, 322, 49, 302, 52, 302, 94, 322.984, 95.021, 323, 110, 330, 110, 339, 110, 339, 103, 330, 102.859, 330, 12, 330, 5, 330, -6, 323, -6, 323.095, 5, 255, 5, 254, -16, 187, -16, 186, 4, 167, 5, 166, -228, 172, -228, 171, -235 )
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="StaticBody2D"]
+build_mode = 1
+polygon = PoolVector2Array( 497, -34, 493, -30, 493, -10, 497, -6, 554, -5, 558, -9, 558, -31, 554, -34 )
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( 0, -121 )
+build_mode = 1
+polygon = PoolVector2Array( 497, -34, 493, -30, 493, -10, 497, -6, 554, -5, 558, -9, 558, -31, 554, -34 )
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PoolVector2Array( 543, -164, 553, -157, 558, -163, 565, -155, 565, -128, 577, -128, 577, -156, 571, -156, 557, -170, 552, -170, 545, -168 )
+
+[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( 0, 120 )
+polygon = PoolVector2Array( 543, -164, 553, -157, 558, -163, 565, -155, 565, -128, 577, -128, 577, -156, 571, -156, 557, -170, 552, -170, 545, -168 )
+
+[node name="LeaveHospital" type="Area2D" parent="."]
+position = Vector2( -183, -34 )
+rotation = 1.5708
+script = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeaveHospital"]
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="EnterSecondFloor" type="Area2D" parent="."]
+position = Vector2( -458, -139 )
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnterSecondFloor"]
+shape = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="EnterFirstFloor" type="Area2D" parent="."]
+position = Vector2( 352, -137 )
+script = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnterFirstFloor"]
+shape = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="StaticMedicine4" type="Sprite" parent="."]
+position = Vector2( 610, -218 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 6 )
+
+[node name="StaticMedicine5" type="Sprite" parent="."]
+position = Vector2( 615, -220 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 6 )
+
+[node name="StaticMedicine3" type="Sprite" parent="."]
+position = Vector2( 614, -216 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 6 )
+
+[node name="StaticMedicine2" type="Sprite" parent="."]
+position = Vector2( 619, -215 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 6 )
+
+[node name="StaticMedicine" type="Sprite" parent="."]
+position = Vector2( 611, -213 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 6 )
+
+[node name="Medicine" parent="." instance=ExtResource( 2 )]
+position = Vector2( 617, -208 )
+scale = Vector2( 0.2, 0.2 )
+
+[node name="ammo_box" parent="." instance=ExtResource( 7 )]
+position = Vector2( -214, -58 )
+scale = Vector2( 0.3, 0.3 )
+
+[node name="ammo_box3" parent="." instance=ExtResource( 7 )]
+position = Vector2( -242, 224 )
+scale = Vector2( 0.3, 0.3 )
+
+[node name="ammo_box4" parent="." instance=ExtResource( 7 )]
+position = Vector2( -394, -227 )
+scale = Vector2( 0.3, 0.3 )
+
+[node name="ammo_box2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 482, 97 )
+scale = Vector2( 0.3, 0.3 )
+[connection signal="body_exited" from="LeaveHospital" to="LeaveHospital" method="_on_LeaveHospital_body_exited"]

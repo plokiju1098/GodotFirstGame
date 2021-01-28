@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/homewalking.wav-00d8e3014d62362be4eb800f610ff2af.sample"
+
+[deps]
+
+source_file="res://Sounds/homewalking.wav"
+dest_files=[ "res://.import/homewalking.wav-00d8e3014d62362be4eb800f610ff2af.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

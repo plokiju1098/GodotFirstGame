@@ -1,0 +1,52 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Sprites_v2/Ammo_box.png" type="Texture" id=1]
+[ext_resource path="res://Interface/slkscr.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 8
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[node name="Ammo" type="Control"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -75.0
+margin_top = -13.0
+margin_right = -10.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ArrowLabel" type="Label" parent="."]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -4.5
+margin_right = -8.0
+margin_bottom = 4.5
+custom_fonts/font = SubResource( 1 )
+text = "0/0"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Arrows" type="TextureRect" parent="."]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -51.0
+margin_top = -9.5
+margin_right = -28.0
+margin_bottom = 13.5
+rect_scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
