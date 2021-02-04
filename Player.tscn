@@ -201,7 +201,7 @@ scale = Vector2( 0.7, 0.7 )
 shape = SubResource( 2 )
 
 [node name="Light2D" type="Light2D" parent="."]
-position = Vector2( 0, 1 )
+position = Vector2( -23, -9 )
 texture = ExtResource( 3 )
 color = Color( 1, 0.988235, 0.72549, 1 )
 energy = 0.3
@@ -273,7 +273,7 @@ attenuation = 0.965936
 
 [node name="BatSwing" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 6 )
-volume_db = -6.992
+volume_db = -16.605
 attenuation = 0.965936
 
 [node name="HospitalWalking" type="AudioStreamPlayer2D" parent="."]
